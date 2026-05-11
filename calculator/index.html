@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="display-section">
+                <input type="text" id="display" class="display" placeholder="0" readonly>
+                <div class="memory-indicator">
+                    <span id="memoryStatus" class="memory-status"></span>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <button class="history-toggle" onclick="toggleHistory()">📜 History</button>
+                <div id="historyPanel" class="history-panel hidden">
+                    <div class="history-header">
+                        <h3>Calculation History</h3>
+                        <button class="close-btn" onclick="toggleHistory()">×</button>
+                    </div>
+                    <div id="historyList" class="history-list"></div>
+                    <button class="clear-history-btn" onclick="clearHistory()">Clear History</button>
+                </div>
+            </div>
+
+            <div class="buttons-section">
+                <!-- Memory Buttons -->
+                <div class="button-row memory-row">
+                    <button class="btn memory-btn" onclick="memoryClear()">MC</button>
+                    <button class="btn memory-btn" onclick="memoryRecall()">MR</button>
+                    <button class="btn memory-btn" onclick="memoryAdd()">M+</button>
+                    <button class="btn memory-btn" onclick="memorySubtract()">M-</button>
+                </div>
+
+                <!-- Standard & Scientific Buttons -->
+                <div class="button-row">
+                    <button class="btn function-btn" onclick="appendToDisplay('(')">( )</button>
+                    <button class="btn function-btn" onclick="appendToDisplay('√')">√</button>
+                    <button class="btn function-btn" onclick="appendToDisplay('^')">x^y</button>
+                    <button class="btn function-btn" onclick="appendToDisplay('%')">%</button>
+                    <button class="btn clear-btn" onclick="clearDisplay()">AC</button>
+                </div>
+
+                <div class="button-row">
+                    <button class="btn function-btn" onclick="appendToDisplay('sin(')">sin</button>
+                    <button class="btn function-btn" onclick="appendToDisplay('cos(')">cos</button>
+                    <button class="btn function-btn" onclick="appendToDisplay('tan(')">tan</button>
+                    <button class="btn function-btn" onclick="appendToDisplay('log(')">log</button>
+                    <button class="btn function-btn" onclick="backspace()">⌫</button>
+                </div>
+
+                <div class="button-row">
+                    <button class="btn function-btn" onclick="appendToDisplay('π')">π</button>
+                    <button class="btn function-btn" onclick="appendToDisplay('e')">e</button>
+                    <button class="btn function-btn" onclick="appendToDisplay('!')">n!</button>
+                    <button class="btn function-btn" onclick="appendToDisplay('ln(')">ln</button>
+                    <button class="btn operator-btn" onclick="appendToDisplay('/')">/</button>
+                </div>
+
+                <div class="button-row">
+                    <button class="btn" onclick="appendToDisplay('7')">7</button>
+                    <button class="btn" onclick="appendToDisplay('8')">8</button>
+                    <button class="btn" onclick="appendToDisplay('9')">9</button>
+                    <button class="btn operator-btn" onclick="appendToDisplay('*')">×</button>
+                    <button class="btn operator-btn" onclick="toggleSign()">+/-</button>
+                </div>
+
+                <div class="button-row">
+                    <button class="btn" onclick="appendToDisplay('4')">4</button>
+                    <button class="btn" onclick="appendToDisplay('5')">5</button>
+                    <button class="btn" onclick="appendToDisplay('6')">6</button>
+                    <button class="btn operator-btn" onclick="appendToDisplay('-')">-</button>
+                    <button class="btn operator-btn" onclick="appendToDisplay('+')">+</button>
+                </div>
+
+                <div class="button-row">
+                    <button class="btn" onclick="appendToDisplay('1')">1</button>
+                    <button class="btn" onclick="appendToDisplay('2')">2</button>
+                    <button class="btn" onclick="appendToDisplay('3')">3</button>
+                    <button class="btn function-btn" onclick="appendToDisplay('.')">.</button>
+                    <button class="btn equals-btn" onclick="calculateResult()" style="grid-row: span 2;">=</button>
+                </div>
+
+                <div class="button-row">
+                    <button class="btn" onclick="appendToDisplay('0')" style="grid-column: span 2;">0</button>
+                    <button class="btn function-btn" onclick="appendToDisplay('(')">(</button>
+                    <button class="btn function-btn" onclick="appendToDisplay(')')">)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
